@@ -1,0 +1,5 @@
+/home/gustavo-romero/Documentos/Ingeniería en desarrollo de software/Bimestre V/Desarrollo Cloud Native I/Git/kafka/kafka-producer/src/main/java/com/example/kafka_producer/KafkaProducerApplication.java
+/home/gustavo-romero/Documentos/Ingeniería en desarrollo de software/Bimestre V/Desarrollo Cloud Native I/Git/kafka/kafka-producer/src/main/java/com/example/kafka_producer/config/KafkaProducerConfig.java
+/home/gustavo-romero/Documentos/Ingeniería en desarrollo de software/Bimestre V/Desarrollo Cloud Native I/Git/kafka/kafka-producer/src/main/java/com/example/kafka_producer/controller/ProducerController.java
+/home/gustavo-romero/Documentos/Ingeniería en desarrollo de software/Bimestre V/Desarrollo Cloud Native I/Git/kafka/kafka-producer/src/main/java/com/example/kafka_producer/service/KafkaProducerService.java
+/home/gustavo-romero/Documentos/Ingeniería en desarrollo de software/Bimestre V/Desarrollo Cloud Native I/Git/kafka/kafka-producer/src/main/java/com/example/kafka_producer/service/ScheduledKafkaProducerService.java

@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+  backend:
+    build:
+      context: ./medical
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8081:8081"
+    depends_on:
+      - kafka-consumer
+    networks:
+      - red_cn
+
+  kafka-consumer:
+    build:
+      context: ./kafka-consumer
+      dockerfile: Dockerfile
+    container_name: kafka-consumer
+    ports:
+      - "8085:8085"
+    networks:
+      - red_cn
+
+  kafka-producer:
+    build:
+      context: ./kafka-producer
+      dockerfile: Dockerfile
+    container_name: kafka-producer
+    ports:
+      - "8084:8084"
+    depends_on:
+      - backend
+    networks:
+      - red_cn
+
+  
+networks:
+  red_cn:
+    driver: bridge

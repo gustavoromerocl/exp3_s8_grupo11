@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.example.kafka_producer.KafkaProducerApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.196 s -- in com.example.kafka_producer.KafkaProducerApplicationTests

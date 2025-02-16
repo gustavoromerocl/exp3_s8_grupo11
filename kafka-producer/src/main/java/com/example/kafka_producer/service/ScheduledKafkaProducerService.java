@@ -24,9 +24,9 @@ public class ScheduledKafkaProducerService {
   @Scheduled(fixedRate = 60000) // Ejecuta cada 1 minuto (60,000 ms)
   public void sendRandomMessage() {
     try {
-      // Generar valores aleatorios
-      double temperature = 27 + (random.nextDouble() * 3); // Rango entre 36.0 - 39.0
-      int patientId = random.nextInt(5) + 2; // IDs entre 1 - 5
+      // Generar valores aleatorios en el rango de 25.0 a 40.0
+      double temperature = 25 + (random.nextDouble() * 15); // 25.0 - 40.0
+      int patientId = random.nextInt(5) + 1; // IDs entre 1 - 5
       String measurementDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date());
 
       // Crear JSON del mensaje

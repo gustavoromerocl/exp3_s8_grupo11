@@ -19,10 +19,11 @@ public class KafkaConsumerService {
     @KafkaListener(topics = "alertas", groupId = "group_id")
     public void consume(ConsumerRecord<String, String> record) {
         try {
-            String key = record.key();
-            String message = record.value();  
-            System.out.println("Consumed message: " + message + "; Consumed Key: " + key);
             
+            String message = record.value();  
+            
+            System.out.println("⚠️ Alerta Recibida recibida: " + message);
+
             var alert = new Alert();
             alert.setReceivedDate(LocalDateTime.now());
             alert.setMessage(message);

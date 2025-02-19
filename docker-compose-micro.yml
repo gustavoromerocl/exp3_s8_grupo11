@@ -35,6 +35,16 @@ services:
     networks:
       - red_cn
 
+  bff:
+    build:
+      context: ./duoc-cloud-bff
+      dockerfile: Dockerfile
+    container_name: duoc-cloud-bff
+    ports:
+      - "8080:8080"
+    networks:
+      - red_cn
+
   
 networks:
   red_cn:

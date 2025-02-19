@@ -19,14 +19,18 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 @Service
 public class KafkaConsumerService {
 
-  private final KafkaProducerService kafkaProducerService;
   private final ObjectMapper objectMapper;
-
+  
   @Autowired
   private PatientService patientService;
 
-  public KafkaConsumerService(KafkaProducerService kafkaProducerService) {
-    this.kafkaProducerService = kafkaProducerService;
+  @Autowired
+  private VitalSignService vitalSignService;
+
+  @Autowired 
+  private RabbitProducerService rabbitProducerService;
+
+  public KafkaConsumerService() {
     this.objectMapper = new ObjectMapper();
     this.objectMapper.registerModule(new JavaTimeModule());
   }
@@ -58,6 +62,9 @@ public class KafkaConsumerService {
       vitalSign.setHist(vitalSignDTO.getHist()); // Asignar `hist`
       vitalSign.setPatient(patient); // Asegurar que `patient` está asignado correctamente
 
+
+      vitalSignService.add(vitalSign);
+      
       // Detectar anomalía
       if (isAnomalous(vitalSign)) {
         sendAlert(vitalSign);
@@ -108,7 +115,7 @@ public class KafkaConsumerService {
       String jsonMessage = objectMapper.writeValueAsString(alert);
 
       // Enviar al tópico de alertas
-      kafkaProducerService.sendAlert(jsonMessage);
+      rabbitProducerService.sendAlert(jsonMessage);
       System.out.println("🚨 Alerta generada y enviada: " + jsonMessage);
 
     } catch (Exception e) {

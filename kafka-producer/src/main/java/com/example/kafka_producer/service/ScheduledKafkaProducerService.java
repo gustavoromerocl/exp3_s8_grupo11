@@ -26,7 +26,7 @@ public class ScheduledKafkaProducerService {
     try {
       // Generar valores aleatorios en el rango de 25.0 a 40.0
       double temperature = 25 + (random.nextDouble() * 15); // 25.0 - 40.0
-      int patientId = random.nextInt(5) + 1; // IDs entre 1 - 5
+      int patientId = random.nextInt(5) + 2; // IDs entre 2 - 6
       String measurementDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date());
 
       // Crear JSON del mensaje
